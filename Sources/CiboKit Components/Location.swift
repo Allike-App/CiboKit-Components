@@ -26,7 +26,7 @@ public struct Location: Identifiable, Codable, Equatable, Hashable {
     public var category: String
     public var price: Int
     
-    init(_ yelpItem: YelpItem) {
+    public init(_ yelpItem: YelpItem) {
         self.id = yelpItem.id
         self.title = yelpItem.name
         self.coordinates = yelpItem.coordinates
