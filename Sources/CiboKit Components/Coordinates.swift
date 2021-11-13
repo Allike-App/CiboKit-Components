@@ -13,6 +13,6 @@ public struct Coordinates: Codable, Hashable {
         self.longitude = longitude
     }
     
-    var latitude: Float
-    var longitude: Float
+    public var latitude: Float
+    public var longitude: Float
 }
