@@ -7,6 +7,6 @@
 
 import Foundation
 
-public struct YelpSearchResponse: Decodable {
+public struct YelpSearchResponse: Codable {
     public var businesses: [YelpItem]
 }

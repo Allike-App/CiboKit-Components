@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct YelpItem: Identifiable, Decodable {
+public struct YelpItem: Identifiable, Codable {
     public var id,
         phone,
         alias,
@@ -36,12 +36,12 @@ public struct YelpItem: Identifiable, Decodable {
         case url
     }
     
-    public struct Category: Decodable {
+    public struct Category: Codable {
         public var alias,
             title: String
     }
     
-    public struct Location: Decodable {
+    public struct Location: Codable {
         public var address1,
             address2,
             address3: String?
