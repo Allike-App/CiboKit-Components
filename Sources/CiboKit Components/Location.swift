@@ -14,17 +14,17 @@ public struct Location: Identifiable, Codable, Equatable, Hashable {
     
     public var id: String
     
-    public var title: String
+    public var title: String?
     public var imageURL: URL?
-    public var coordinates: Coordinates
-    public var address: String
-    public var city: String
-    public var phone: String
-    public var distance: Float
-    public var zipCode: String
-    public var rating: Float
-    public var category: String
-    public var price: Int
+    public var coordinates: Coordinates?
+    public var address: String?
+    public var city: String?
+    public var phone: String?
+    public var distance: Float?
+    public var zipCode: String?
+    public var rating: Float?
+    public var category: String?
+    public var price: Int?
     
     public init(_ yelpItem: YelpItem) {
         self.id = yelpItem.id
@@ -41,6 +41,18 @@ public struct Location: Identifiable, Codable, Equatable, Hashable {
         
         if let imageURL = yelpItem.imageURL {
             self.imageURL = URL(string: imageURL)
+        }
+    }
+    
+    public init(_ place: GooglePlacesItem, apiKey: String? = nil, maxPhotoWidth: Int = 400) {
+        self.id = place.id
+        self.title = place.name
+        self.address = place.address
+        self.rating = place.rating != nil ? Float(place.rating!) : nil
+        self.price = place.price
+        
+        if let apiKey = apiKey {
+            self.imageURL = place.photos?.first?.url(apiKey, maxWidth: maxPhotoWidth)
         }
     }
     

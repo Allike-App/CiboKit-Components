@@ -9,7 +9,8 @@ import Foundation
 
 public struct GooglePlacesItem: Identifiable, Codable {
     public var id: String
-    public var address: String?
+    public var address,
+               name: String?
     public var price,
                rating,
                userRatingsCount: Int?
@@ -19,6 +20,7 @@ public struct GooglePlacesItem: Identifiable, Codable {
     
     public enum CodingKeys: String, CodingKey {
         case id = "place_id"
+        case name
         case price = "price_level"
         case rating
         case url
